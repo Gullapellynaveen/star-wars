@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+.container .header {
+  background-color: #229A76;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+}
+.container .header .star-war-heading {
+  font-size: 40px;
+  font-weight: bold;
+}
+.container .main-content {
+  display: flex;
+  width: calc(100% - 120px);
+  padding: 40px 60px 0;
+}
+.container .main-content .profile-info {
+  padding: 16px;
+  background: white;
+  margin-right: 20px;
+  height: 100%;
+}
+.container .main-content .profile-info .profile-image {
+  width: 120px;
+  height: 120px;
+  background-color: #C7CFD7;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.container .main-content .profile-info .profile-image .world-icon {
+  width: 80px;
+  height: 80px;
+  font-size: 80px;
+}
+.container .main-content .profile-info .profile-details {
+  padding: 10px;
+  border-radius: 5px;
+}
+.container .main-content .additional-info {
+  flex: 2;
+  padding: 40px;
+  background: white;
+}
+.container .main-content .additional-info h2 {
+  margin-top: 0;
+}
+.container .main-content .additional-info .films,
+.container .main-content .additional-info .vehicles,
+.container .main-content .additional-info .starships {
+  width: 100%;
+}
+.container .main-content .additional-info .films ul,
+.container .main-content .additional-info .vehicles ul,
+.container .main-content .additional-info .starships ul,
+.container .main-content .additional-info .films li.not-available,
+.container .main-content .additional-info .vehicles li.not-available,
+.container .main-content .additional-info .starships li.not-available {
+  list-style-type: none;
+}
+.container .main-content .additional-info .films ul,
+.container .main-content .additional-info .vehicles ul,
+.container .main-content .additional-info .starships ul {
+  background: #EEEFF1;
+  padding: 16px;
+  border-radius: 16px;
+}
+.container .main-content .additional-info .films .films-heading,
+.container .main-content .additional-info .vehicles .films-heading,
+.container .main-content .additional-info .starships .films-heading,
+.container .main-content .additional-info .films .vehicles-heading,
+.container .main-content .additional-info .vehicles .vehicles-heading,
+.container .main-content .additional-info .starships .vehicles-heading,
+.container .main-content .additional-info .films .starships-heading,
+.container .main-content .additional-info .vehicles .starships-heading,
+.container .main-content .additional-info .starships .starships-heading {
+  color: #229A76;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+}

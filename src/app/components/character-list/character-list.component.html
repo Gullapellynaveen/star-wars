@@ -1,0 +1,104 @@
+<div class="container">
+    <header class="header" fxLayout="row" fxLayoutAlign="space-between flex-end">
+        <span class="star-war-heading">STAR WARS</span>
+        <span class="project-info">THE SWAPI PROJECT</span>
+    </header>
+    <div class="main-content">
+
+        <div class="filters">
+            <span class="filter-headding">FILTERS</span>
+            <div class="filters-content" fxLayout="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Movie Name</mat-label>
+                    <mat-select [(ngModel)]="filters.movie">
+                        <mat-option *ngFor="let film of films" [value]="film.url">
+                            {{ film.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Species</mat-label>
+                    <mat-select [(ngModel)]="filters.species">
+                        <mat-option *ngFor="let specie of species" [value]="specie.url">
+                            {{ specie.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Vehicle</mat-label>
+                    <mat-select [(ngModel)]="filters.vehicle">
+                        <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.url">
+                            {{ vehicle.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Star Ships</mat-label>
+                    <mat-select [(ngModel)]="filters.starship">
+                        <mat-option *ngFor="let starship of starships" [value]="starship.url">
+                            {{ starship.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Birth Year</mat-label>
+                    <mat-select [(ngModel)]="filters.birthYear">
+                        <mat-option *ngFor="let year of birthYears" [value]="year">
+                            {{ year }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button mat-raised-button (click)="applyFilters()">Search</button>
+            </div>
+
+        </div>
+
+        <section class="search-results mat-elevation-z2">
+            <div class="search-results-heading">SEARCH RESULTS</div>
+            <table mat-table [dataSource]="paginatedCharacters" class="mat-elevation-z8">
+                <ng-container matColumnDef="number">
+                    <th mat-header-cell *matHeaderCellDef>Sl No.</th>
+                    <td mat-cell *matCellDef="let element; let i = index">{{ (currentPage - 1) * pageSize + i + 1 }}.
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Character Name</th>
+                    <td mat-cell *matCellDef="let element">
+                        <a [routerLink]="['/character', element.url.split('/')[5]]">{{ element.name }}</a>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="species">
+                    <th mat-header-cell *matHeaderCellDef>Species</th>
+                    <td mat-cell *matCellDef="let element">{{ element.speciesName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="birth_year">
+                    <th mat-header-cell *matHeaderCellDef>Birth Year</th>
+                    <td mat-cell *matCellDef="let element">{{ element.birth_year }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <div class="custom-paginator" fxLayoutAlign="end" fxLayoutGap="10px">
+                <button (click)="previousPage()" class="previous-button" [disabled]="currentPage === 1">
+                    <mat-icon>play_circle</mat-icon>
+                </button>
+                <ng-container *ngFor="let page of pages">
+                    <button [class.active]="currentPage === page" class="page-numbers" (click)="setPage(page)">{{ page
+                        }}</button>
+                </ng-container>
+                <button (click)="nextPage()" [disabled]="currentPage === pages.length">
+                    <mat-icon>play_circle</mat-icon>
+                </button>
+            </div>
+        </section>
+    </div>
+</div>

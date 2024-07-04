@@ -1,0 +1,54 @@
+<div class="container">
+    <header class="header" fxLayout="row" fxLayoutAlign="space-between flex-end">
+        <span class="star-war-heading">STAR WARS</span>
+        <span class="project-info">THE SWAPI PROJECT</span>
+    </header>
+    <div class="main-content">
+        <aside class="profile-info mat-elevation-z2" fxLayout="column" fxLayoutAlign="start center">
+            <div class="profile-image" fxLayoutAlign="center center">
+                <mat-icon class="world-icon">language</mat-icon>
+            </div>
+            <div class="profile-details">
+                <p><strong>Name:</strong> {{ character.name ? character.name : 'NA' }}</p>
+                <p><strong>SkyWalkerBorn:</strong> {{ character.birth_year ? character.birth_year : 'NA' }}</p>
+                <p><strong>Gender:</strong> {{ character.gender ? character.gender : 'NA' }}</p>
+                <p><strong>Height:</strong> {{ character.height ? character.height : 'NA' }} cm</p>
+                <p><strong>Created at:</strong> {{ character.created ? (character.created | date: 'MM/dd/yyyy h:mm a') :
+                    'NA' }}</p>
+                <p><strong>Edited at:</strong> {{ character.edited ? (character.edited | date: 'MM/dd/yyyy h:mm a') :
+                    'NA' }}</p>
+                <p><strong>Weight:</strong> {{ character.mass ? character.mass : 'NA' }} kg</p>
+                <p><strong>Hair Color:</strong> {{ character.hair_color ? character.hair_color : 'NA' }}</p>
+                <p><strong>Skin Color:</strong> {{ character.skin_color ? character.skin_color : 'NA' }}</p>
+                <p><strong>Eye Color:</strong> {{ character.eye_color ? character.eye_color : 'NA' }}</p>
+                <p><strong>Panet Name:</strong> {{ panet.name ? panet.name : 'NA' }}</p>
+                <p><strong>Species:</strong> {{ species.name ? species.name : 'NA' }}</p>
+            </div>
+        </aside>
+
+        <section class="additional-info mat-elevation-z2" fxLayout="column" fxLayoutAlign="start start"
+            fxLayoutGap="20px">
+            <section class="films">
+                <span class="films-heading">Films</span>
+                <ul>
+                    <li *ngFor="let film of films">{{ film.title }}</li>
+                    <li *ngIf="films.length === 0">Not Available</li>
+                </ul>
+            </section>
+            <section class="vehicles">
+                <span class="vehicles-heading">Vehicles</span>
+                <ul>
+                    <li *ngFor="let vehicle of vehicles">{{ vehicle.name }}</li>
+                    <li *ngIf="vehicles.length === 0">Not Available</li>
+                </ul>
+            </section>
+            <section class="starships">
+                <span class="starships-heading">Starships</span>
+                <ul>
+                    <li *ngFor="let starship of starships">{{ starship.name }}</li>
+                    <li *ngIf="starships.length === 0">Not Available</li>
+                </ul>
+            </section>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+
+    .header {
+        background-color: #229A76;
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+
+        .star-war-heading {
+            font-size: 40px;
+            font-weight: bold;
+        }
+    }
+
+    .main-content {
+        display: flex;
+        width: calc(100% - 120px);
+        padding: 40px 60px 0;
+
+        .profile-info {
+            padding: 16px;
+            background: white;
+            margin-right: 20px;
+            height: 100%;
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                background-color: #C7CFD7;
+                border-radius: 50%;
+                margin-top: 20px;
+
+                .world-icon {
+                    width: 80px;
+                    height: 80px;
+                    font-size: 80px;
+                }
+            }
+
+            .profile-details {
+                padding: 10px;
+                border-radius: 5px;
+            }
+        }
+
+        .additional-info {
+            flex: 2;
+            padding: 40px;
+            background: white;
+
+            h2 {
+                margin-top: 0;
+            }
+
+            .films,
+            .vehicles,
+            .starships {
+                width: 100%;
+
+                ul,
+                li.not-available {
+                    list-style-type: none;
+                }
+
+                ul {
+                    background: #EEEFF1;
+                    padding: 16px;
+                    border-radius: 16px;
+                }
+
+                .films-heading,
+                .vehicles-heading,
+                .starships-heading {
+                    color: #229A76;
+                    font-size: 24px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
